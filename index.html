@@ -27,7 +27,7 @@
     </header>
 
     <!--Booking Section-->
-    <main class="main-content container">
+    <main id="booking_area" class="main-content container">
 
         <div class="booking-content">
             <h1>Cruise Queen</h1>
@@ -108,9 +108,61 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="book_btn" class="btn-style book_button">Book Now</button>
         </div>
     </main>
+
+    <!-- Booking Details Section -->
+
+    <section id="details_area">
+        <div class="book_detail_form">
+            <h3>Your Booking Details</h3>
+            <div class="input-group">
+                <label for="">Flying From</label>
+                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+            </div>
+            <div class="input-group">
+                <label for="">Flying To</label>
+                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+            </div>
+            <div class="input-group f-class">
+                
+            </div>
+            
+            <div class="input-group f-class">
+                
+            </div>
+            <div class="calculations">
+                <div class="amount">
+                    <div class="left">
+                        <p>Subtotal</p>
+                    </div>
+                    <div class="right">
+                        <p id="total_price">$000</p>
+                    </div>
+                </div>
+
+                <div class="amount">
+                    <div class="left">
+                        <p>Charge 10% VAT</p>
+                    </div>
+                    <div class="right">
+                        <p id="total_vat">$000</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="amount">
+                    <div class="left">
+                        <h4>Total</h4>
+                    </div>
+                    <div class="right">
+                        <p id="grand_total">$000</p>
+                    </div>
+                </div>
+            </div>
+            <button id="back_btn" class="btn-style book_button back_button">Back</button>
+        </div>
+    </section>
 
     <script>
         function handleSeatCount(seat, isIncrease){
@@ -149,6 +201,29 @@
 
          return SeatCount;
       }
+
+      // Booking button Event Handler
+      const bookbtn = document.getElementById("book_btn");
+        bookbtn.addEventListener("click", function(){
+            const bookArea = document.getElementById("booking_area");
+            bookArea.style.display = "none";
+
+            const detailArea = document.getElementById("details_area");
+            detailArea.style.display = "block";
+
+            totalPriceCount();
+        });
+      const backbtn = document.getElementById("back_btn");
+        backbtn.addEventListener("click", function(){
+            const backArea = document.getElementById("details_area");
+            backArea.style.display = "none";
+
+            const detailArea = document.getElementById("booking_area");
+            detailArea.style.display = "block";
+
+            totalPriceCount();
+        });
+
     </script>
     <!--Thank You-->
 </body>
